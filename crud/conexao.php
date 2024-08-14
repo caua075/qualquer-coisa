@@ -2,7 +2,7 @@
 $servername = "db";
 $username = "root";
 $password = "senha_da_nasa";
-$dbname = "trab_ids";
+$dbname = "mysql";
 
 // Criar conexão
 $conn = new mysqli($servername, $username, $password, $dbname);
