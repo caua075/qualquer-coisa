@@ -1,11 +1,9 @@
 <?php
-$servername = "db";
-$username = "root";
 $password = "senha_da_nasa";
 $dbname = "trab_ids";
 
 // Criar conexão
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($password, $dbname);
 
 // Checar conexão
 if ($conn->connect_error) {
