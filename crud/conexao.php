@@ -1,10 +1,16 @@
 <?php
-$conf = parse_ini_file("confConexao.ini");
 
-$string_connection = $conf["driver"] .
-        ":dbname=" . $conf["database"] .
-          ";host=" . $conf["server"] .
-          ";port=" . $conf["port"];
+$conf = [
+    "driver" => "mysql",
+    "server" => "db",
+    "user" => "root",
+    "password" => "C@!232104",
+    "database" => "mysql",
+    "port" => "3306",
+    "debug" => true
+];
+
+$string_connection = "{$conf['driver']}:dbname={$conf['database']};host={$conf['server']};port={$conf['port']}";
 
 try {
     $conn = new PDO(
@@ -12,7 +18,17 @@ try {
         $conf["user"],
         $conf["password"]
     );
+
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    if ($conf['debug']) {
+        echo "<p>Conexão realizada com sucesso!</p>";
+    }
+
 } catch (Exception $e) {
     echo "<p>Erro ao se conectar no banco de dados. </p>";
-    echo $e->getMessage();
+    if ($conf['debug']) {
+        echo $e->getMessage();
+    }
 }
+?>
