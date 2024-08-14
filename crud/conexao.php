@@ -5,7 +5,7 @@ $password = 'senha_da_nasa';
 $dbname = 'trab_ids';
 
 // Criar conexão
-$conn = new mysqli('nome_do_host', 'usuario', 'senha', 'nome_do_banco');
+$conn = new mysqli($host, $user, $password, $dbname);
 
 // Checar conexão
 if ($conn->connect_error) {
