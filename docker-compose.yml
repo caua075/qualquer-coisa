@@ -20,7 +20,7 @@ services:
       MYSQL_DATABASE: trab_ids
     volumes:
       - db_data:/var/lib/mysql
-      - ./sql/crud.sql:/docker-entrypoint-initdb.d/database.sql
+      - ./sql/crud.sql:/docker-entrypoint-initdb.d/crud.sql
     deploy:
       resources:
         limits:
