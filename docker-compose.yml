@@ -2,7 +2,7 @@ services:
   web:
     build: .
     ports:
-      - "80:80"
+      - "81:80"
     volumes:
       - ./crud:/var/www/html
     deploy:
