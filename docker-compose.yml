@@ -18,8 +18,8 @@ services:
     image: mysql:5.7
     container_name: crud_roupa_db
     environment:
-      MYSQL_ROOT_PASSWORD: senha_da_nasa
-      MYSQL_DATABASE: trab_ids
+      MYSQL_ROOT_PASSWORD: C@!232104
+      MYSQL_DATABASE: mysql
       MYSQL_USER: user
       MYSQL_PASSWORD: password
     volumes:
