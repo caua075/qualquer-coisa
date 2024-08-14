@@ -1,34 +1,14 @@
 <?php
+$servername = "db";
+$username = "root";
+$password = "senha_da_nasa";
+$dbname = "trab_ids";
 
-$conf = [
-    "driver" => "mysql",
-    "server" => "db",
-    "user" => "root",
-    "password" => "C@!232104",
-    "database" => "mysql",
-    "port" => "3306",
-    "debug" => true
-];
+// Criar conexão
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-$string_connection = "{$conf['driver']}:dbname={$conf['database']};host={$conf['server']};port={$conf['port']}";
-
-try {
-    $conn = new PDO(
-        $string_connection,
-        $conf["user"],
-        $conf["password"]
-    );
-
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    if ($conf['debug']) {
-        echo "<p>Conexão realizada com sucesso!</p>";
-    }
-
-} catch (Exception $e) {
-    echo "<p>Erro ao se conectar no banco de dados. </p>";
-    if ($conf['debug']) {
-        echo $e->getMessage();
-    }
+// Checar conexão
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 ?>

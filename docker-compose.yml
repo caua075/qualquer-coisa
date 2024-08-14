@@ -1,51 +1,44 @@
-version: '3.7'
-
 services:
   web:
     build: .
-    container_name: crud_roupa_web
     ports:
-      - "81:80"
+      - "80:80"
+    volumes:
+      - ./crud:/var/www/html
     deploy:
       resources:
         limits:
+          cpus: '1'
           memory: 300M
-          cpus: '1.0'
-    networks:
-      - app-network
+    depends_on:
+      - db
 
   db:
-    image: mysql:5.7
-    container_name: crud_roupa_db
+    image: mysql:8.0
     environment:
-      MYSQL_ROOT_PASSWORD: C@!232104
-      MYSQL_DATABASE: mysql
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: senha_da_nasa
+      MYSQL_DATABASE: trab_ids
     volumes:
-      - .codigo/banco.sql:/docker-entrypoint-initdb.d/banco.sql
+      - db_data:/var/lib/mysql
+      - ./sql/database.sql:/docker-entrypoint-initdb.d/database.sql
     deploy:
       resources:
         limits:
+          cpus: '1'
           memory: 500M
-          cpus: '1.0'
-    networks:
-      - app-network
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+    image: phpmyadmin:latest
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: mydba
     ports:
       - "8080:80"
     deploy:
       resources:
         limits:
+          cpus: '4'
           memory: 200M
-          cpus: '4.0'
-    networks:
-      - app-network
 
 volumes:
   db_data:
-
-networks:
-  app-network:
