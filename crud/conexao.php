@@ -1,5 +1,5 @@
 <?php
-$host = 'localhost';
+$host = 'db';
 $user = 'root';
 $password = 'senha_da_nasa';
 $dbname = 'trab_ids';
