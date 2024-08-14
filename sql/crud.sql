@@ -4,4 +4,4 @@ CREATE TABLE IF NOT EXISTS roupa(
     marca VARCHAR(50) NOT NULL, 
     tamanho VARCHAR(3) NOT NULL, 
     PRIMARY KEY (`id`)
-) ENGINE = InnoDB;
+);
