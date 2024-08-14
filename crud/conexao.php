@@ -1,8 +1,8 @@
 <?php
 $host = 'db';
 $user = 'root';
-$password = 'C@!232104';
-$dbname = 'mysql';
+$password = 'senha_da_nasa';
+$dbname = 'trab_ids';
 
 // Criar conexão
 $conn = new mysqli($host, $user, $password, $dbname);
